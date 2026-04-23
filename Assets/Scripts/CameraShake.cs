@@ -7,7 +7,6 @@ public class CameraShake : MonoBehaviour
     public float shakeAmount = 0.2f;
 
     Vector3 originalPos;
-    bool shaking;
 
     void Awake()
     {
@@ -18,7 +17,6 @@ public class CameraShake : MonoBehaviour
     public void StartShake(float amount, float duration)
     {
         shakeAmount = amount;
-        shaking = true;
         StartCoroutine(Shake(duration));
     }
 
@@ -36,6 +34,5 @@ public class CameraShake : MonoBehaviour
         }
 
         transform.localPosition = originalPos;
-        shaking = false;
     }
 }

@@ -3784,7 +3784,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -45.399994, y: -34.9}
+  m_AnchoredPosition: {x: -45.399902, y: -34.900024}
   m_SizeDelta: {x: 85.45947, y: 62.8965}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &400957925
@@ -7946,6 +7946,7 @@ GameObject:
   - component: {fileID: 820488127}
   - component: {fileID: 820488130}
   - component: {fileID: 820488131}
+  - component: {fileID: 820488132}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8083,6 +8084,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe90304d8e46c02408482be318a02c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
+--- !u!114 &820488132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820488126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7205022624e3aa44b9fff27f9c256593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WavedashInit
 --- !u!1 &832417452
 GameObject:
   m_ObjectHideFlags: 0
