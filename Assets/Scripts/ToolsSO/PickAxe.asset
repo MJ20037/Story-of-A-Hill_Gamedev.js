@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2874d9cdd2299842b81429ad34b0f88, type: 3}
+  m_Name: PickAxe
+  m_EditorClassIdentifier: Assembly-CSharp::Tool
+  toolName: Pick Axe
+  digPower: 4
+  baseCost: 0
+  maxCost: 0
+  costMultiplier: 1.15
+  flatIncrease: 10
+  tier: 0
+  workerSprite: {fileID: 3876497900317922485, guid: 78a159f219ca21d478d183c3805ec542, type: 3}
+  animator: {fileID: 9100000, guid: c2a033ab46d237c4db4ce876c0989990, type: 2}
+  digParticles: {fileID: 3619106131465852611, guid: 387cb820955650842bdd7ca259c7cec6, type: 3}
+  workerLoopClip: {fileID: 8300000, guid: 2a5be04d617eb404c991f4648e39cbad, type: 3}

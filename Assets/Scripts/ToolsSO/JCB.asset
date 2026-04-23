@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2874d9cdd2299842b81429ad34b0f88, type: 3}
+  m_Name: JCB
+  m_EditorClassIdentifier: Assembly-CSharp::Tool
+  toolName: Bulldozer
+  digPower: 36
+  baseCost: 420
+  maxCost: 8000
+  costMultiplier: 1.3
+  flatIncrease: 50
+  tier: 2
+  workerSprite: {fileID: 422215611597426961, guid: 390046acd94247a48850eba5a2b27156, type: 3}
+  animator: {fileID: 9100000, guid: 2040d53b5f6f0524ba640011ffec2805, type: 2}
+  digParticles: {fileID: 3619106131465852611, guid: 0933c0d7c19e3044096a2a1b44a94199, type: 3}
+  workerLoopClip: {fileID: 8300000, guid: 4f0c604e8ae76df40a6edc0ec8498493, type: 3}
