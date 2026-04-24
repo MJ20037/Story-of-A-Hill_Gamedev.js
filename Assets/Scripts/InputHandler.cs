@@ -6,6 +6,7 @@ using System;
 public class InputHandler : MonoBehaviour
 {
     public static Action<Vector3> OnClicked;
+
     private PlayerInputActions inputActions;
 
     public Camera cam;
@@ -14,6 +15,9 @@ public class InputHandler : MonoBehaviour
     void Awake()
     {
         inputActions = new PlayerInputActions();
+
+        if (cam == null)
+            cam = Camera.main;
     }
 
     void OnEnable()
@@ -32,20 +36,42 @@ public class InputHandler : MonoBehaviour
     {
         if (IsPointerOverUI())
             return;
-        Vector2 screenPos = Mouse.current.position.ReadValue();
+
+        Vector2 screenPos = GetPointerScreenPosition();
+
+        if (cam == null)
+            return;
 
         Vector3 worldPos = cam.ScreenToWorldPoint(
             new Vector3(screenPos.x, screenPos.y, -cam.transform.position.z)
         );
 
-        digController.HandleClick(worldPos);
+        if (digController != null)
+            digController.HandleClick(worldPos);
+
         OnClicked?.Invoke(worldPos);
+    }
+
+    Vector2 GetPointerScreenPosition()
+    {
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+            return Touchscreen.current.primaryTouch.position.ReadValue();
+
+        if (Mouse.current != null)
+            return Mouse.current.position.ReadValue();
+
+        return Vector2.zero;
     }
 
     bool IsPointerOverUI()
     {
+        if (EventSystem.current == null)
+            return false;
+
+        Vector2 screenPos = GetPointerScreenPosition();
+
         PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = Mouse.current.position.ReadValue();
+        eventData.position = screenPos;
 
         var results = new System.Collections.Generic.List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);

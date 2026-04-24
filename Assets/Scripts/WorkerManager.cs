@@ -43,7 +43,7 @@ public class WorkerManager : MonoBehaviour
         }
 
         GameManager.Instance.RemoveMoney(cost);
-        AudioDirector.Instance?.PlayPlayerDig();
+        AudioDirector.Instance?.PlayUISuccess();
         AttackManager.Instance?.OnWorkerHired();
 
         SpawnWorker();

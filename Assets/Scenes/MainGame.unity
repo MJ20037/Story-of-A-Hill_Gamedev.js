@@ -4727,7 +4727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1fb61a9296adb4b9425423e9dd51d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridManager
-  width: 170
+  width: 175
   height: 12
   baseHealth: 8
   healthMultiplier: 2
@@ -5032,6 +5032,8 @@ MonoBehaviour:
   - {fileID: 3619106131465852611, guid: 0fe9c1d044dcfdc48970ed12f199379f, type: 3}
   - {fileID: 8436388032617001692, guid: 852c31a462c8f794bb485539034f840f, type: 3}
   - {fileID: 6267607395804249402, guid: 4e72c4a247b34964c9f89deaaf5e0401, type: 3}
+  - {fileID: 2070339535569166079, guid: 59a599a876e2ec144bcfba812880a914, type: 3}
+  - {fileID: 875208127948713292, guid: 027cd99667aa26c4f8a99b0450dfa54a, type: 3}
 --- !u!1 &848786653
 GameObject:
   m_ObjectHideFlags: 0
@@ -6195,8 +6197,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -48, y: -39}
-  m_SizeDelta: {x: 78.537, y: 56.2338}
+  m_AnchoredPosition: {x: -54.145508, y: -43.98877}
+  m_SizeDelta: {x: 96.2458, y: 72.2561}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188718345
 MonoBehaviour:
@@ -6307,7 +6309,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.2
 --- !u!222 &1188718347
 CanvasRenderer:
   m_ObjectHideFlags: 0

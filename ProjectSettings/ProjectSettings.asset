@@ -8,11 +8,11 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Ulysses7
   productName: Story of a Hill
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -299,7 +299,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: b60a184468f022e4e9415ffbddf00262, type: 3}
+      m_Icon: {fileID: 2800000, guid: 4ac6242caa0947944858a97243ed903d, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -403,6 +403,9 @@ PlayerSettings:
   - m_BuildTarget: WebGL
     m_StaticBatching: 0
     m_DynamicBatching: 0
+  - m_BuildTarget: Android
+    m_StaticBatching: 1
+    m_DynamicBatching: 0
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
   m_BuildTargetGraphicsJobMode: []
@@ -427,6 +430,9 @@ PlayerSettings:
   - serializedVersion: 3
     m_BuildTarget: WebGL
     m_Formats: 05000000
+  - serializedVersion: 3
+    m_BuildTarget: Android
+    m_Formats: 01000000
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1

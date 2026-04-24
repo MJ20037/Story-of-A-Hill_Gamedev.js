@@ -16,6 +16,8 @@ public class Animal : MonoBehaviour, IPoolable
     public float attackRange = 0.5f;
     public float killCooldown = 0.5f;
 
+    public ParticleSystem walkParticles;
+
     private float killTimer = 0f;
 
     private WorkerManager workerManager;
@@ -28,6 +30,11 @@ public class Animal : MonoBehaviour, IPoolable
     {
         workerManager = FindObjectOfType<WorkerManager>();
         anim = GetComponent<Animator>();
+    }
+
+    void OnEnable()
+    {
+        walkParticles.Play();
     }
 
     void Update()
@@ -182,6 +189,8 @@ public class Animal : MonoBehaviour, IPoolable
         state = AnimalState.Dead;
         targetWorker = null;
 
+        walkParticles.Stop();
+
         BloodManager.Instance?.SpawnBlood(transform.position);
 
         AnimalTracker.Instance?.Unregister(this);
@@ -201,6 +210,8 @@ public class Animal : MonoBehaviour, IPoolable
         AnimalTracker.Instance?.OnAnimalNeutralized();
         AudioDirector.Instance?.PlayAnimalFall();
         GameStats.Instance?.RegisterRescue();
+
+        walkParticles.Stop();
 
         if (anim != null)
             anim.SetTrigger("Stop");

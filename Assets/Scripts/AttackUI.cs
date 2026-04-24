@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
 public class AttackUI : MonoBehaviour
@@ -45,7 +46,16 @@ public class AttackUI : MonoBehaviour
             AudioDirector.Instance.PlayTranqShot();
         }
 
-        Collider2D hit = Physics2D.OverlapPoint(pos);
+        Collider2D hit;
+
+        if (IsTouchInput())
+        {
+            hit = Physics2D.OverlapCircle(pos, 0.25f);
+        }
+        else
+        {
+            hit = Physics2D.OverlapPoint(pos);
+        }
         if (hit == null) return;
 
         ShootTarget target = hit.GetComponent<ShootTarget>();
@@ -64,8 +74,11 @@ public class AttackUI : MonoBehaviour
         if (tool == PlayerTool.Gun)
             animal.KillAnimal();
         else if (tool == PlayerTool.Tranq)
-            animal.Tranquilize();
+            animal.Tranquilize();  
+    }
 
-        
+    bool IsTouchInput()
+    {
+        return Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed;
     }
 }

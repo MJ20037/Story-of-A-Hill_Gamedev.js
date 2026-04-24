@@ -27,6 +27,7 @@ public class Worker : MonoBehaviour
     private bool isPanicking = false;
     private AudioSource toolAudioSource;
     private AudioClip lastLoopClip;
+    private ParticleSystem currentWalkVfx;
 
     void Start()
     {
@@ -47,6 +48,7 @@ public class Worker : MonoBehaviour
     void OnDisable()
     {
         StopDigVfx();
+        StopWalkVfx();
     }
 
     void Update()
@@ -178,6 +180,13 @@ public class Worker : MonoBehaviour
             return;
         }
 
+        StartWalkVfx();
+
+        if (currentWalkVfx != null)
+        {
+            currentWalkVfx.transform.position = transform.position;
+        }
+
         transform.position = Vector3.MoveTowards(
             transform.position,
             targetWorldPos,
@@ -189,6 +198,7 @@ public class Worker : MonoBehaviour
             transform.position = targetWorldPos;
             state = WorkerState.Digging;
             StartDigVfx();
+            StopWalkVfx();
         }
     }
 
@@ -257,6 +267,7 @@ public class Worker : MonoBehaviour
         }
 
         StartDigVfx();
+        StopWalkVfx();
 
         float power = currentTool != null ? currentTool.digPower : digPower;
         bool finished = currentTarget.Dig(power);
@@ -345,6 +356,27 @@ public class Worker : MonoBehaviour
             toolAudioSource.Stop();
 
         state = WorkerState.Idle;
+    }
+
+    void StartWalkVfx()
+    {
+        if (currentWalkVfx != null) return;
+        if (currentTool == null || currentTool.walkParticles == null) return;
+
+        Vector3 pos = transform.position;
+
+        currentWalkVfx = ParticlePoolManager.Instance.Spawn(
+            currentTool.walkParticles,
+            pos
+        );
+    }
+
+    void StopWalkVfx()
+    {
+        if (currentWalkVfx == null) return;
+
+        ParticlePoolManager.Instance.Release(currentWalkVfx);
+        currentWalkVfx = null;
     }
 
     float GetToolPower(Worker w)

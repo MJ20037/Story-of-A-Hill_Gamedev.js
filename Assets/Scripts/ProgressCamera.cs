@@ -14,6 +14,8 @@ public class ProgressCameraController : MonoBehaviour
 
     private int currentDepth = 0;
     private float targetX;
+    float initialCameraX;
+    int initialDepth = 0;
     
 
     void Awake()
@@ -26,7 +28,8 @@ public class ProgressCameraController : MonoBehaviour
 
     void Start()
     {
-        targetX = transform.position.x;
+        initialCameraX = transform.position.x;
+        targetX = initialCameraX;
     }
 
     void Update()
@@ -37,14 +40,24 @@ public class ProgressCameraController : MonoBehaviour
 
     void UpdateTargetDepth()
     {
-        // check if current column is fully cleared
-        if (IsColumnCleared(currentDepth))
-        {
-            currentDepth++;
+        if (gridManager == null) return;
 
-            targetX = transform.position.x + xOffset;
+        int newDepth = currentDepth;
+
+        // Move forward until we hit a column that is NOT cleared
+        while (IsColumnCleared(newDepth))
+        {
+            newDepth++;
         }
-    }
+
+        // Only update if changed
+        if (newDepth != currentDepth)
+        {
+            currentDepth = newDepth;
+
+            targetX = initialCameraX + (currentDepth - initialDepth);
+        }
+}
 
     bool IsColumnCleared(int x)
     {

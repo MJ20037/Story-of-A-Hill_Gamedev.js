@@ -22,4 +22,5 @@ MonoBehaviour:
   workerSprite: {fileID: 3079884433693960547, guid: d74f2611f3206534eb46930637f4732f, type: 3}
   animator: {fileID: 9100000, guid: 6bd88d2dba009ac4fbbdac95142d5790, type: 2}
   digParticles: {fileID: 3619106131465852611, guid: 4645f1ba209f1704ca886d6b40c74cbf, type: 3}
+  walkParticles: {fileID: 2070339535569166079, guid: 59a599a876e2ec144bcfba812880a914, type: 3}
   workerLoopClip: {fileID: 8300000, guid: 6182162d28516b24e90ed2de67966e5c, type: 3}

@@ -15,5 +15,7 @@ public class Tool : ScriptableObject
     public RuntimeAnimatorController animator;
 
     public ParticleSystem digParticles;
+    public ParticleSystem walkParticles;
+    
     public AudioClip workerLoopClip;
 }
